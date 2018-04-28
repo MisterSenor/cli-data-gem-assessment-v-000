@@ -1,4 +1,4 @@
-require "do_you_like_to_exercise/version"
+require_relative "./do_you_like_to_exercise/version"
 
 module DoYouLikeToExercise
   # Your code goes here...
