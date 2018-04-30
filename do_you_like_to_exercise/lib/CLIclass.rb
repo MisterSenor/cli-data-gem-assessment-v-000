@@ -23,9 +23,11 @@ class CLIclass
         when "Yes"
           Culvers_flavor_scraper
         when "No"
-          puts "I'm really sorry.  You don't like ice cream OR exercise.  Your life must be very difficult.  Type 'exit' to exit."
+          puts "I'm really sorry.  You don't like ice cream OR exercise.  What do you like?"
+        when !"exit" && !"Y" && !"B" && !"I" && !"A" && !"N" && !"Yes" && !"No"
+          puts "Well, at least you like SOMETHING!  Type 'exit' to exit."
         end
       end
     end
-          
+
 end
