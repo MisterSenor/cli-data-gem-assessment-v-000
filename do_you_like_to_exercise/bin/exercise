@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
 
-require "Nokogiri"
-require_relative './lib/do_you_like_to_exercise'
-
-CLIclass.new.call
+require_relative '../lib/Cli.rb'
+Do_you_like_to_exercise::Cli.new.call
