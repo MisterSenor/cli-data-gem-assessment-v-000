@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 
-require_relative '../lib/do_you_like_to_exercise'
-require_relative '..lib/do_you_like_to_exercise/do_you_like_to_exercise.rb'
+require_relative '..lib/Cli.rb'
+
 
 DoYouLikeToExercise::Cli.new.call
