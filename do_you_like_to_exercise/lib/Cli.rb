@@ -1,5 +1,5 @@
 
-class CLIclass
+class Cli 
 
   def initialize
   end

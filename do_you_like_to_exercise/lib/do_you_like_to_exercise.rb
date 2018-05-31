@@ -1,4 +1,4 @@
-require_relative "./do_you_like_to_exercise/version"
+require_relative "../config/environment.rb"
 
 module DoYouLikeToExercise
   # Your code goes here...
