@@ -13,9 +13,14 @@ class Cli
      end
      input = gets.strip
      if input == "WOD"
-       puts "scraper object for WODs"
+       week_of_wods
        puts "Type the number of the WOD for a more specific description of the WOD."
      end
    end
+
+   def week_of_wods
+     #this method will scrape up a weeks' worth of wods
+   end
+
 
  end
