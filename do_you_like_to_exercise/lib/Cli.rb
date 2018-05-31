@@ -1,6 +1,9 @@
 
 class Cli
 
+  def initialize
+  end 
+
 
   def call
     puts "Hello.  Do you like to exercise? (Enter: Y/N)"
@@ -24,4 +27,6 @@ class Cli
       puts "Remember, to type wod for a list of this week's wods."
     end
     #will need to stub out the second level of interacting with the scraped data here
+  end
+
 end
