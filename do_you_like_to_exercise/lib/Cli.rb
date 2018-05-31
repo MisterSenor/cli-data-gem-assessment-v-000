@@ -10,7 +10,7 @@ class Cli
       puts "Type wod for a list of this weeks wods."
     elsif input == "N"
       input = gets.strip
-      puts "Do you like ice cream? (Enter: nY/N)"
+      puts "Do you like ice cream? (Enter: Y/N)"
       if input == "Y"
         puts "Culver's frozen custard flavor of the day is _____."
       elsif input == "N"
