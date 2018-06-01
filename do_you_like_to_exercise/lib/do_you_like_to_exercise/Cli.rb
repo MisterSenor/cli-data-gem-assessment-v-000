@@ -1,5 +1,6 @@
 
 class Cli
+
   def call
      puts "Hello.  Do you like to exercise? (Enter: Y/N)"
      input = gets.strip
@@ -12,30 +13,35 @@ class Cli
      elsif input == "exit"
        goodbye
      end
-     list_wods
      menu
    end
 
 def menu
+  input = nil
+  while input != "exit"
+  list_wods
 	puts "Enter the number of the wod for a more detailed description."
-  input = gets.strip
-  case input
-  when "1"
-    puts "wod 1 info"
-  when "2"
-    puts "wod 2 info"
-  when "3"
-    puts "wod 3 info"
-  when "4"
-    puts "wod 4 info"
-  when "5"
-    puts "wod 5 info"
-  when "6"
-    puts "wod 6 info"
-  when "7"
-    puts "wod 7 info"
-  when "exit"
-    goodbye
+  input = gets.strip.downcase
+    case input
+    when "1"
+      puts "wod 1 info"
+    when "2"
+      puts "wod 2 info"
+    when "3"
+      puts "wod 3 info"
+    when "4"
+      puts "wod 4 info"
+    when "5"
+      puts "wod 5 info"
+    when "6"
+      puts "wod 6 info"
+    when "7"
+      puts "wod 7 info"
+    when "exit"
+      goodbye
+    else
+      puts "Type a number from 1 to 7 or the word exit."
+    end
   end
 end
 
