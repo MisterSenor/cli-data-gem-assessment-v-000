@@ -1,6 +1,16 @@
 
 class Cli
 
+  def goodbye
+    puts "See you next time for more wods!"
+  end
+
+
+  def list_wods
+    #this method will scrape up a weeks' worth of wods
+    puts "wod 1, wod 2, wod 3, wod 4, wod 5, wod 6, wod 7"
+  end
+
   def call
      puts "Hello.  Do you like to exercise? (Enter: Y/N)"
      input = gets.strip
@@ -20,16 +30,23 @@ class Cli
      elsif input == "exit"
        goodbye
      end
+     input = gets.strip
+      case input
+      when "1"
+        puts "wod 1 info"
+      when "2"
+        puts "wod 2 info"
+      when "3"
+        puts "wod 3 info"
+      when "4"
+        puts "wod 4 info"
+      when "5"
+        puts "wod 5 info"
+      when "6"
+        puts "wod 6 info"
+      when "7"
+        puts "wod 7 info"
+      end
    end
 
-   def list_wods
-     #this method will scrape up a weeks' worth of wods
-     puts "wod 1, wod 2, wod 3, wod 4, wod 5, wod 6, wod 7"
-   end
-
-   def goodbye
-     puts "See you next time for more wods!"
-   end
-
-
- end
+end 
