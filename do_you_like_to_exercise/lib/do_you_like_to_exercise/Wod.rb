@@ -10,6 +10,10 @@ class Wod
     @description = description 
     @@all << self 
   end 
+
+  def self.all 
+    @@all 
+  end 
   
 
   wod_1 = self.new
