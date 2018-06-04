@@ -24,10 +24,11 @@ class Cli
         puts "Enter the number of the wod for a more detailed description."
         puts ""
         puts Wod.all[input.to_i - 1]
+        menu 
       elsif input == "exit"
         goodbye
       else
-        puts ""Type a number from 1 to 7 or the word exit.""
+        puts "Type a number from 1 to 7 or the word exit."
       end
     end
 
