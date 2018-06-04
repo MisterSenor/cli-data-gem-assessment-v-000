@@ -24,7 +24,7 @@ class Cli
         puts "Enter the number of the wod for a more detailed description."
         puts ""
         puts Wod.all[input.to_i - 1]
-        menu 
+        menu
       elsif input == "exit"
         goodbye
       else

@@ -3,18 +3,22 @@ class Wod
   attr_accessor :date, :day, :title, :description
   @@all = []
 
-  def initialize(date = nil, day = nil, title = nil, description = nil)
-    @date = date 
-    @day = day 
-    @title = title 
-    @description = description 
-    @@all << self 
-  end 
+  def self.new_from_index_page(wod)
+  end
 
-  def self.all 
-    @@all 
-  end 
-  
+
+  def initialize(date = nil, day = nil, title = nil, description = nil)
+    @date = date
+    @day = day
+    @title = title
+    @description = description
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
+
 
   wod_1 = self.new
   wod_1.date = "06/01/18" #formatted 180601
