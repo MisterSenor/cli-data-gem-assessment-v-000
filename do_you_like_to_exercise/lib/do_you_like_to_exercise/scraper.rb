@@ -4,7 +4,7 @@ class Scraper
 
   def self.get_days_and_dates
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
-    day_with_date = doc.search("h3.hide a").text
+    day_with_date = doc.search("h3.hide a").text.insert(/(\d{6})/, " ")
   end
 
 
