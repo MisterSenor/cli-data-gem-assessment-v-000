@@ -4,10 +4,7 @@ class Scraper
 
   def self.get_days_and_dates
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
-    day_with_date = doc.search("h3.show").text
-#     #How do I split this string? "Wednesday 180606Tuesday 180605Monday 180604Sunday 180603Saturday 180602Friday 180601Thursday 180531Wednesday 180530Tuesday 180529Monday 180528Sun
-# day 180527Saturday 180526Friday 180525Thursday 180524Wednesday 180523Tuesday 180522Monday 180521Sunday 180520Saturday 180519Friday 180518Thursday 1805
-# 17Wednesday 180516Tuesday 180515Monday 180514Sunday 180513Saturday 180512Friday 180511Thursday 180510Wednesday 180509Tuesday"
+    day_with_date = doc.search("h3.hide a").text
   end
 
 
