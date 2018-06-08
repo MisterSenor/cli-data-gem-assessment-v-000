@@ -3,8 +3,13 @@
 class Scraper
 
   def self.get_days_and_dates
+    day_date_array = []
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
-    day_with_date = doc.search("h3.hide a").text.insert(/(\d{6})/, " ")
+    day_with_date = doc.search("h3.hide a")
+    day_with_date.map do |day_date|
+      day_date_array << day_date.text
+    end
+    day_date_array[0..6]
   end
 
 
