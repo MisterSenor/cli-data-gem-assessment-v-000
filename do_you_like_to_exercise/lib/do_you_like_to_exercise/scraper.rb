@@ -15,8 +15,13 @@ class Scraper
 
 
   def self.get_wods
+    wod_array = []
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
-    wods = doc.search("div.col-sm-6 p strong").text
+    wods = doc.search("div.col-sm-6")
+    wods.map do |each_wod|
+      wod_array << each_wod.text
+    end
+    wod_array[0..6]
   end
 
 
