@@ -18,14 +18,15 @@ class Scraper
     wod_array = []
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
     wods = doc.search("div.row div.col-sm-6")
-    days = doc.search("div.col-xs-12 col-sm-6 col-m-7 col-lg-7 content")
-    wod_count = wods.count
-    day_count = days.count
-    binding.pry
+    wods.each do |wod|
+      wod_array << wod.text
+    end
+    wod_array[0..13]
 
+    # days = doc.search("div.col-xs-12 col-sm-6 col-m-7 col-lg-7 content")
+    # wod_count = wods.count
+    # day_count = days.count
   end
-
-  The number of div.col-sm-6 needs to be divided by the number of div.row that they have as a parent
 
 
 
