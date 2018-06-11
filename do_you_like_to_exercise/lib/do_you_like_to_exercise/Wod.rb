@@ -1,15 +1,10 @@
 
 class Wod
-  attr_accessor :date, :day, :description
+  attr_accessor :day_and_date, :description
   @@all = []
 
-  def self.new_from_index_page(wod)
-  end
-
-
-  def initialize(date = nil, day = nil, description = nil)
-    @date = date
-    @day = day
+  def initialize(day_and_date=nil, description = nil)
+    @day_and_date = day_and_date
     @description = description
     @@all << self
   end
