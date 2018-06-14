@@ -14,14 +14,16 @@ class Scraper
 
 
   def self.get_wods
+    new_array = []
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
     wods = doc.search("section#archives.section")
     wods.each do |wod|
       day_and_date = wod.search("h3.hide a").text
       description = wod.search("div.col-sm-6").text
-      Wod.new(day_and_date, description)
+      new_array << wod
       # Wod.new_from_index_page(wod)
     end
+    new_array
   end
 
 

@@ -3,22 +3,23 @@ class Wod
   attr_accessor :day_and_date, :description
   @@all = []
 
-  
+
   def initialize(day_and_date=nil, description=nil)
     @day_and_date = day_and_date
     @description = description
   end
 
-  def self.scraper 
+  def self.scraper
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
     wods = doc.search("section#archives.section")
     wods.each do |wod|
-      day_and_date = wod.search("h3.hide a").text
+      day_and_date = wod
       description = wod.search("div.col-sm-6").text
-      self.new(day_and_date, description)
-      @@all << self
-    end 
-  end 
+      new_wod = self.new(day_and_date, description)
+      @@all << new_wod
+    end
+      @@all
+  end
 
   def self.all
     @@all

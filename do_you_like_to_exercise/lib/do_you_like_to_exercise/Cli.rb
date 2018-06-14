@@ -18,17 +18,16 @@ class Cli
    end
 
    def menu
+     puts "Enter the number of the wod for a more detailed description."
      input = gets.strip
       if input.to_i > 0 && input.to_i < 8
-        list_wods
-        puts "Enter the number of the wod for a more detailed description."
-        puts ""
         puts Wod.all[input.to_i - 1]
         menu
       elsif input == "exit"
         goodbye
       else
         puts "Type a number from 1 to 7 or the word exit."
+        menu
       end
     end
 
