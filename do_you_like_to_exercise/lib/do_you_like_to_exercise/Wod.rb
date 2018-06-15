@@ -15,27 +15,25 @@ class Wod
     doc.search("div.container-hybrid").each do |row|
       row.search("h3.hide a").each do |day|
         day_and_date_array << day.text
-      end 
-    end 
+      end
+    end
     day_and_date_array
   end 
-  
-  
 
-  # def self.scrape_index_page(index_url)
-  #   doc = Nokogiri::HTML(open(index_url))
-  #   student_array = []
-  #   doc.css("div.roster-cards-container").each do |people|
-  #     people.css(".student-card").each do |person|
-  #     student = {}
-  #     student[:name] = person.css("div h4.student-name").text
-  #     student[:location] = person.css("p.student-location").text
-  #     student[:profile_url] = person.css("a").attribute("href").value
-  #     student_array << student
-  #       end
-  #     end
-  #     student_array
-  #   end
+  def self.scrape_descriptions
+    description_array = []
+    doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
+    doc.search("div.container-hybrid").each do |row|
+      row.search("wherever the workouts are").each do |description|
+         description_array << description.text
+       end
+     end
+     description_array
+  end
+
+
+
+
 
 
   def self.all
