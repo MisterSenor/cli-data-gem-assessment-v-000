@@ -11,36 +11,34 @@ class Wod
 
   def self.scraper
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
-    wods = doc.search("section#archives.section")
-    wods.each do |wod|
-      day_and_date = wod
-      description = wod.search("div.col-sm-6").text
-      new_wod = self.new(day_and_date, description)
-      @@all << new_wod
+    wod_array = []
+    doc.css("section#archives.section").each do |wod|
+      wod_hash = {}
+      wod_hash[:day_and_date] = wod.css("h3.hide a").text
+      wod_hash[:description] = wod.css("div.col-sm-6").text
+      wod_array << wod_hash #Now you have an array of hashes
     end
-      @@all
-  end
+      wod_array
+    end
+
+  # def self.scrape_index_page(index_url)
+  #   doc = Nokogiri::HTML(open(index_url))
+  #   student_array = []
+  #   doc.css("div.roster-cards-container").each do |people|
+  #     people.css(".student-card").each do |person|
+  #     student = {}
+  #     student[:name] = person.css("div h4.student-name").text
+  #     student[:location] = person.css("p.student-location").text
+  #     student[:profile_url] = person.css("a").attribute("href").value
+  #     student_array << student
+  #       end
+  #     end
+  #     student_array
+  #   end
+
 
   def self.all
     @@all
   end
-
-
-  # wod_1 = self.new
-  # wod_1.date = "06/01/18" #formatted 180601
-  # wod_1.day = "Friday"
-  # wod_1.description = "3 rounds for time of: 9 muscle-ups, 36-ft. handstand walk, 36-45-54 single-leg squats, 36-ft. handstand walk"
-  #
-  # wod_2 = self.new
-  # wod_2.date = "05/31/18" #formatted 180531
-  # wod_2.day = "Thursday"
-  # wod_2.description = "Front squat 3-3-3 reps, Push press 3-3-3 reps, Thruster 3-3-3 reps"
-  #
-  # wod_3 = self.new
-  # wod_3.date = "?"
-  # wod_3.day = "?"
-  # wod_3.description = "?"
-  #
-  # [wod_1, wod_2, wod_3]
 
 end

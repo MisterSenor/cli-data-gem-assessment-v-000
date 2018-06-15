@@ -2,6 +2,7 @@
 class Cli
 
   def call
+    Wod.scraper
      puts "Hello.  Do you like to exercise? (Enter: Y/N)"
      input = gets.strip
      if input == "Y"
@@ -21,6 +22,7 @@ class Cli
      puts "Enter the number of the wod for a more detailed description."
      input = gets.strip
       if input.to_i > 0 && input.to_i < 8
+        binding.pry
         puts Wod.all[input.to_i - 1]
         menu
       elsif input == "exit"
