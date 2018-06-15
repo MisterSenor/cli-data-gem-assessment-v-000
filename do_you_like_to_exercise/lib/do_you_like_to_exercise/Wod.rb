@@ -9,18 +9,18 @@ class Wod
     @description = description
   end
 
-  def self.scraper
+  def self.scrape_days_and_dates
+    day_and_date_array = []
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
     doc.search("div.container-hybrid").each do |row|
-      row.search("div.row")each do |wod|
-        wod_hash = {}
-        wod_hash[:day_and_date] = wod.search("h3.hide a").text
-        wod_hash[:description] = wod.search("div.col-sm-6").text
-      @@all << wod_hash #Now you have an array of hashes
-    end
+      row.search("h3.hide a").each do |day|
+        day_and_date_array << day.text
+      end 
+    end 
+    day_and_date_array
   end 
-      @all
-    end
+  
+  
 
   # def self.scrape_index_page(index_url)
   #   doc = Nokogiri::HTML(open(index_url))
