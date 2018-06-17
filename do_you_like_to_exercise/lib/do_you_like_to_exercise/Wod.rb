@@ -18,18 +18,19 @@ class Wod
       end
     end
     day_and_date_array
-  end 
+  end
 
   def self.scrape_descriptions
-    description_array = []
     doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
-    doc.search("div.container-hybrid").each do |row|
-      row.search("wherever the workouts are").each do |description|
-         description_array << description.text
+    doc.search("div.col-xs-12.col-sm-6.col-md-7.col-lg-7.content").each do |row|
+      row.search("div.row").each do |description|
+         new_wod = self.new(day_and_date=nil, description)
+         @@all << new_wod
        end
      end
-     description_array
+     @@all
   end
+
 
 
 
