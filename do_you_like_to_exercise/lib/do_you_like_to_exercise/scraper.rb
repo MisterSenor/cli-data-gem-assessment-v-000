@@ -12,6 +12,14 @@ class Scraper
   # end
 
 
+  def scrape_wods
+    @doc = Nokogiri::HTML(open("https://www.crossfit.com/workout"))
+    @doc.search("section#archives.section").each do |wod|
+      day_and_date = wod.search("h3.hide a").text
+      description = wod.search("div.col-xs-12.col-sm-6.col-md-7.col-lg-7.content div.row").text
+    end
+  end 
+
 
   def self.get_wods
     new_array = []
