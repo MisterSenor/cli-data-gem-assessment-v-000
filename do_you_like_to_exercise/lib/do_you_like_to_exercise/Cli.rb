@@ -2,7 +2,7 @@
 class Cli
 
   def call
-    Wod.scraper
+    Scraper.new.scrape_wods
      puts "Hello.  Do you like to exercise? (Enter: Y/N)"
      input = gets.strip
      if input == "Y"
@@ -36,7 +36,9 @@ class Cli
 
 def list_wods
   #this method will scrape up a weeks' worth of wods
-  puts "wod 1, wod 2, wod 3, wod 4, wod 5, wod 6, wod 7"
+  Wod.all[0..6].each do |wod|
+    puts wod.day_and_date
+  end
 end
 
 def goodbye

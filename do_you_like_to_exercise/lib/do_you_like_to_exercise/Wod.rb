@@ -1,6 +1,6 @@
 
 class Wod
-  attr_accessor :day_and_date, :description
+  attr_accessor :day_and_date, :description, :url
   @@all = []
 
   def save
