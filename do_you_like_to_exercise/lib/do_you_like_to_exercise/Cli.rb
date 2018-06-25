@@ -31,18 +31,18 @@ def describe_wods
   Wod.all[0..6].each do |wod|
     week_of_wods_array << wod.description
   end
-  input = gets.strip
-  if input.to_i < 0 && input.to_i > 8
-    loop do
+    input = gets.strip
+    binding.pry
+    if input.to_i < 0 && input.to_i > 8
+
       puts week_of_wods_array[input.to_i - 1]
-      list_wods
-      if input == "exit"
-        break
-        end
-      end
+    elsif input == "exit"
+      goodbye
+    else
+      "Enter a number from 1 to 7 for more information on a workout."
     end
-    goodbye 
-  end
+end
+
 
 def goodbye
   puts "See you next time for more wods!"
