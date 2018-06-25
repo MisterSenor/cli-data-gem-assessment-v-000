@@ -20,7 +20,7 @@ class Cli
 
 def list_wods
   #this method will scrape up a weeks' worth of wods
-  Wod.all[0..6].each do |wod|
+  Wod.all[0..6].each_with_index do |wod|
     puts wod.day_and_date
   end
 end
@@ -31,15 +31,13 @@ def describe_wods
   Wod.all[0..6].each do |wod|
     week_of_wods_array << wod.description
   end
-  input = gets.to_i
-    if input > 0 && input < 8
-      puts week_of_wods_array[input + 1]
-      list_wods
+  input = gets.strip
+    if input.to_i > 0 && input.to_i < 8
+      puts week_of_wods_array[input.to_i - 1]
     elsif input == "exit"
       goodbye
     else
       puts "You need to type a number from 1 to 7."
-      describe_wods
     end
   end
 
