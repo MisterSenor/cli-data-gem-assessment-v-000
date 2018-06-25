@@ -32,13 +32,16 @@ def describe_wods
     week_of_wods_array << wod.description
   end
   input = gets.strip
-    if input.to_i > 0 && input.to_i < 8
+  if input.to_i < 0 && input.to_i > 8
+    loop do
       puts week_of_wods_array[input.to_i - 1]
-    elsif input == "exit"
-      goodbye
-    else
-      puts "You need to type a number from 1 to 7."
+      list_wods
+      if input == "exit"
+        break
+        end
+      end
     end
+    goodbye 
   end
 
 def goodbye
