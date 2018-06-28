@@ -1,8 +1,6 @@
 # DoYouLikeToExercise
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/do_you_like_to_exercise`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Hello and welcome to the Crossfit WOD scraper.  This gem will scrape the 7 most recent days' worth of workouts, and through user interaction, display details of the daily workouts.  
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In order to use this gem, type ./exercise into your command line and then wait for the user prompts.  You will answer Y or N for some questions and then a number from 1 to 7 for other questions.  Type "exit" to leave the app. 
 
 ## Development
 
