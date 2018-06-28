@@ -25,8 +25,8 @@ class Cli
 
    def list_wods
      #this method will scrape up a weeks' worth of wods
-     Wod.all[0..6].each_with_index do |wod|
-       puts wod.day_and_date
+     Wod.all[0..6].each_with_index do |wod, index|
+       puts "#{index +1}. #{wod.day_and_date}"
      end
    end
 
@@ -42,11 +42,12 @@ class Cli
     elsif input == "exit"
       goodbye
     end
-    puts "Would you like more information on these wods? (Y/N)"
+    puts "Would you like more information on another wod? (Y/N)"
     puts " "
-    list_wods
     input = gets.strip.upcase
     if input == "Y"
+      list_wods
+      puts "Type the number of the wod about which you would like to know more."
       get_wods(input)
     else
       goodbye
