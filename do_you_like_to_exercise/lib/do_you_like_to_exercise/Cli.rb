@@ -10,7 +10,7 @@ class Cli
        puts " "
        puts "Note: WOD stands for 'Workout of the Day.'"
        puts " "
-       puts "Here is a list of the previous weeks' wods."
+       puts "Here is a list of the previous week's wods."
        puts " "
        list_wods
        puts " "
