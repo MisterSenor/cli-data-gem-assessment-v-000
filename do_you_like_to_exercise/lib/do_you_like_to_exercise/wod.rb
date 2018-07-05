@@ -3,7 +3,7 @@ class Wod
   attr_accessor :day_and_date, :description, :url
   @@all = []
 
-  def save
+  def initialize
     @@all << self
   end
 

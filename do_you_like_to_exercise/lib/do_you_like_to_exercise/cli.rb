@@ -4,7 +4,7 @@ class Cli
   def call
     Scraper.new.scrape_wods
      puts "Hello.  Do you like to exercise? (Enter: Y/N)"
-     input = gets.strip
+     input = gets.strip.upcase
      if input == "Y"
        puts "Hello and welcome to the Crossfit WOD scraper!"
        puts " "
@@ -14,13 +14,12 @@ class Cli
        puts " "
        list_wods
        puts " "
-       puts "Type a number from 1 to 7 for more information on any of these wods."
+       get_wods
      elsif input == "N"
        puts "Well, if you don't like to exercise maybe you would like to know that Culver's frozen custard flavor of the day is ____."
-     elsif input == "exit"
-       goodbye
+     else
+       puts "I don't understand.  Please type 'Y' or 'N'".
      end
-      get_wods(input)
    end
 
    def list_wods
@@ -30,27 +29,39 @@ class Cli
      end
    end
 
-  def get_wods(input)
-    week_of_wods_array = []
+  def get_wods
+    @week_of_wods_array = []
     Wod.all[0..6].each do |wod|
       week_of_wods_array << wod.description
     end
+    verify_wods
+  end
+
+  def verify_wods
+    puts "Type a number from 1 to 7 for more information on any of these wods."
     input = gets.strip
     if input.to_i > 0 && input.to_i < 8
-      puts week_of_wods_array[input.to_i - 1]
+      puts @week_of_wods_array[input.to_i - 1]
       puts " "
-    elsif input == "exit"
-      goodbye
+    else
+      puts "I'm sorry.  I don't recognize your input.  Please type 'Y' or 'N'."
     end
     puts "Would you like more information on another wod? (Y/N)"
     puts " "
+    more_info
+  end
+
+  def more_info
     input = gets.strip.upcase
     if input == "Y"
       list_wods
-      puts "Type the number of the wod about which you would like to know more."
-      get_wods(input)
-    else
+      get_wods
+      verify_wods
+    elsif input == "N"
       goodbye
+    else
+      puts "Sorry, I can't understand.  Please type 'Y' or 'N'."
+      more_info
     end
   end
 
@@ -59,4 +70,4 @@ class Cli
     puts "See you tomorrow for more wods!"
   end
 
-end
+end 

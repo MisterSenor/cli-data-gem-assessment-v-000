@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/do_you_like_to_exercise'
-
-require_relative '../lib/do_you_like_to_exercise/Cli.rb'
-
-require_relative '../lib/do_you_like_to_exercise/Wod.rb'
+#
+# require_relative '../lib/do_you_like_to_exercise/Cli.rb'
+#
+# require_relative '../lib/do_you_like_to_exercise/Wod.rb'
 
 
 Cli.new.call
