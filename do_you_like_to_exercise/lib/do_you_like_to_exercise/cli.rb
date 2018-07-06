@@ -47,7 +47,7 @@ class Cli
       puts @week_of_wods_array[input.to_i - 1]
       puts " "
     else
-      puts "I'm sorry.  I don't recognize your input.  Please type 'Y' or 'N'."
+      puts "I'm sorry.  I don't recognize your input.  Please type a number from 1 to 7."
       more_info
     end
     more_info
