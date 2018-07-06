@@ -1,11 +1,11 @@
 
-class Cli
+class DoYouLikeToExercise::Cli
 
   def call
     Scraper.new.scrape_wods
      puts "Hello.  Do you like to exercise? (Enter: Y/N)"
      input = gets.strip.upcase
-     if input == "Y"
+      if input == "Y"
        puts "Hello and welcome to the Crossfit WOD scraper!"
        puts " "
        puts "Note: WOD stands for 'Workout of the Day.'"
@@ -15,11 +15,11 @@ class Cli
        list_wods
        puts " "
        get_wods
-     elsif input == "N"
-       puts "Well, if you don't like to exercise maybe you would like to know that Culver's frozen custard flavor of the day is ____."
-     else
-       puts "I don't understand.  Please type 'Y' or 'N'".
-     end
+      elsif input == "N"
+        puts "Well, if you don't like to exercise maybe you would like to know that Culver's frozen custard flavor of the day is ____."
+      else
+        puts "I don't understand. Please type 'Y' or 'N'."
+      end
    end
 
    def list_wods
@@ -32,7 +32,7 @@ class Cli
   def get_wods
     @week_of_wods_array = []
     Wod.all[0..6].each do |wod|
-      week_of_wods_array << wod.description
+      @week_of_wods_array << wod.description
     end
     verify_wods
   end
@@ -70,4 +70,4 @@ class Cli
     puts "See you tomorrow for more wods!"
   end
 
-end 
+end
