@@ -1,5 +1,5 @@
 
-class DoYouLikeToExercise::Cli
+class Cli
 
   def call
     Scraper.new.scrape_wods
@@ -16,9 +16,10 @@ class DoYouLikeToExercise::Cli
        puts " "
        get_wods
       elsif input == "N"
-        puts "Well, if you don't like to exercise maybe you would like to know that Culver's frozen custard flavor of the day is ____."
+        puts "Well, if you don't like to exercise maybe you would like to know that Culver's frozen custard flavor of the day is #{Culvers_scraper.new.flavor_scraper}."
       else
         puts "I don't understand. Please type 'Y' or 'N'."
+        call
       end
    end
 
@@ -34,6 +35,7 @@ class DoYouLikeToExercise::Cli
     Wod.all[0..6].each do |wod|
       @week_of_wods_array << wod.description
     end
+
     verify_wods
   end
 
@@ -41,17 +43,18 @@ class DoYouLikeToExercise::Cli
     puts "Type a number from 1 to 7 for more information on any of these wods."
     input = gets.strip
     if input.to_i > 0 && input.to_i < 8
+      puts " "
       puts @week_of_wods_array[input.to_i - 1]
       puts " "
     else
       puts "I'm sorry.  I don't recognize your input.  Please type 'Y' or 'N'."
     end
-    puts "Would you like more information on another wod? (Y/N)"
-    puts " "
     more_info
   end
 
   def more_info
+    puts " "
+    puts "Would you like more information on another wod? (Y/N)"
     input = gets.strip.upcase
     if input == "Y"
       list_wods
@@ -64,7 +67,6 @@ class DoYouLikeToExercise::Cli
       more_info
     end
   end
-
 
   def goodbye
     puts "See you tomorrow for more wods!"

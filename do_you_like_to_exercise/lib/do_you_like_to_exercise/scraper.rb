@@ -7,7 +7,7 @@ class Scraper
       wod = Wod.new
       wod.url = workout.search("h3.hide a").attr("href").value
       wod.day_and_date = workout.search("h3.hide a").text
-      wod.description = workout.search("div.col-xs-12.col-sm-6.col-md-7.col-lg-7.content div.row").text.gsub("\n", "").strip
+      wod.description = workout.search("div.col-xs-12.col-sm-6.col-md-7.col-lg-7.content div.row").text.strip
     end
   end
 
