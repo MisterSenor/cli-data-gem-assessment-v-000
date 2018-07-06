@@ -40,6 +40,7 @@ class Cli
   end
 
   def verify_wods
+    puts " "
     puts "Type a number from 1 to 7 for more information on any of these wods."
     input = gets.strip
     if input.to_i > 0 && input.to_i < 8
@@ -47,7 +48,8 @@ class Cli
       puts @week_of_wods_array[input.to_i - 1]
       puts " "
     else
-      puts "I'm sorry.  I don't recognize your input.  Please type 'Y' or 'N'."
+      puts "I'm sorry.  I don't recognize your input.  Please type a number from 1 to 7."
+      more_info
     end
     more_info
   end
