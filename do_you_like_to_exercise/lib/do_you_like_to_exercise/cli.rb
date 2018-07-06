@@ -40,6 +40,7 @@ class Cli
   end
 
   def verify_wods
+    puts " "
     puts "Type a number from 1 to 7 for more information on any of these wods."
     input = gets.strip
     if input.to_i > 0 && input.to_i < 8
