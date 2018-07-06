@@ -48,6 +48,7 @@ class Cli
       puts " "
     else
       puts "I'm sorry.  I don't recognize your input.  Please type 'Y' or 'N'."
+      more_info
     end
     more_info
   end
