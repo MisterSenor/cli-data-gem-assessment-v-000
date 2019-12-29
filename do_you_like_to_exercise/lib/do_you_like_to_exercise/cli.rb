@@ -15,11 +15,15 @@ class Cli
        list_wods
        puts " "
        get_wods
+       verify_wods
       elsif input == "N"
         puts "Well, if you don't like to exercise maybe you would like to know that Culver's frozen custard flavor of the day is #{Culvers_scraper.new.flavor_scraper}."
       else
         puts "I don't understand. Please type 'Y' or 'N'."
-        call
+        if input == "Y"
+          call
+        else goodbye
+        end
       end
    end
 
@@ -35,8 +39,6 @@ class Cli
     Wod.all[0..6].each do |wod|
       @week_of_wods_array << wod.description
     end
-
-    verify_wods
   end
 
   def verify_wods
@@ -73,5 +75,6 @@ class Cli
   def goodbye
     puts "See you tomorrow for more wods!"
   end
+
 
 end
