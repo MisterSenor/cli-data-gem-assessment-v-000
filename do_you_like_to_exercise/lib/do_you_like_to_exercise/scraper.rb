@@ -11,5 +11,4 @@ class Scraper
     end
   end
 
-#This method of iteration doesn't save distinct workouts by day, it stores all of the info in one index of the @all array. How do I fix this?
 end
